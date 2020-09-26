@@ -5,7 +5,8 @@ class Database:
     def connect(self):
         return pymysql.connect(host='dbproject.cy5f1cqlob6l.us-east-1.rds.amazonaws.com',
                              user='admin',
-                             password='rootroot')
+                             password='rootroot',
+                              db='dbproject')
 
     def read(self, id):
         con = Database.connect(self)
