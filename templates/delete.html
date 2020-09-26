@@ -1,4 +1,4 @@
-{%extends 'header.html'}
+{%extends 'header.html'%}
 {% block body %}
 
     <div class="content-wrapper">
@@ -11,7 +11,7 @@
             	</center>
             </div>
 
-            <form class="form-horizontal" method="POST" action="/deletephone">
+            <form class="form-horizontal" method="POST" action="/deleterec">
             {% for row in data %}
               <div class="box-body">
                 <div class="form-group">
@@ -72,8 +72,7 @@
       </div>
     </div>
 
-    
-{% endblock %}
+
 
 <footer class="main-footer">
   <div class="container">
