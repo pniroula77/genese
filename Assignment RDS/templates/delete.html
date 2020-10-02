@@ -1,0 +1,96 @@
+{%extends 'header.html'%}
+{% block body %}
+
+    <div class="content-wrapper">
+      <div class="container">  
+        <section class="content">
+          <div class="box box-info">
+            <div class="box-header with-border">
+            	<center>
+            		<h3 class="box-title">Delete Record</h3>
+            	</center>
+            </div>
+
+            <form class="form-horizontal" method="POST" action="/deleterec">
+            {% for row in data %}
+              <div class="box-body">
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Name</label>
+
+                  <div class="col-sm-10">
+                    <input name="name" value="{{ row[1] }}" type="text" class="form-control" disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">E-mail</label>
+  
+                    <div class="col-sm-10">
+                      <input name="email" value="{{ row[2] }}" type="email" class="form-control" disabled>
+                    </div>
+                </div>
+
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Phone Number</label>
+
+                  <div class="col-sm-10">
+                    <input name="phone" value="{{ row[3] }}" type="text" class="form-control" disabled>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Semester</label>
+  
+                    <div class="col-sm-10">
+                      <input name="semester" value="{{ row[4] }}" type="text" class="form-control" disabled>
+                    </div>
+                  </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Faculty</label>
+  
+                    <div class="col-sm-10">
+                      <input name="faculty" value="{{ row[5] }}" type="text" class="form-control" disabled>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Address</label>
+
+                  <div class="col-sm-10">
+                    <input name="address" value="{{ row[6] }}" type="text" class="form-control" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="box-footer">
+                <a href="/"><button type="button" class="btn btn-default">Cancel</button></a>
+                <input name="delete" type="submit" class="btn btn-info pull-right" value="Delete">
+              </div>
+            {% endfor %}
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+
+
+<footer class="main-footer">
+  <div class="container">
+    <div class="pull-right hidden-xs">
+      <b>Assignment By</b> Pawan Niroula
+    </div>
+  </div>
+</footer>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/jquery-2.2.3.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/app.min.js')}}"></script>
+
+
+
+</body>
+</html>
+
+{% endblock %}

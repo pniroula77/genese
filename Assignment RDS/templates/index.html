@@ -1,0 +1,102 @@
+{% extends "header.html" %} 
+{% block body %}
+
+    <div class="content-wrapper">
+      <div class="container">
+        <section class="content-header">
+            {% for message in get_flashed_messages()%}
+          <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              {{ message }}
+          </div>
+            {% endfor%}
+        </section>
+
+        <section class="content">
+          <div class="box box-primary">
+            <div class="box-header">
+              <a href="/add">
+              	<center>
+              		<button type="button" class="btn btn-primary btn-flat">
+              			<span class="glyphicon glyphicon-plus"></span> Add New Student
+              		</button>
+              	</center>
+              </a>
+            </div>
+
+            <div class="box-body">
+              <table id="dataphone" class="table table-bordered table-striped">
+                <thead align="center">
+                  <tr>
+                    <th >Name</th>
+                    <th>E-mail</th>
+                    <th>Phone Number</th>
+                    <th>Semester</th>
+                    <th>Faculty</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                    {% if data|length == 0 %}
+                  <tr>
+                    <td>No Data</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                    {% else %}
+                  <tr>
+                      {% for row in data %}
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[6] }}</td>
+                    <td>{{ row[7] }}</td>
+                    <td align="center">
+                      <a href="/update/{{ row[0]}}">
+                        <button type="button" class="btn btn-sm btn-warning btn-flat" title="Update"><span class="glyphicon glyphicon-pencil"></span></button>
+                      </a>
+                      <a href="/delete/{{ row[0]}}">
+                        <button type="button" class="btn btn-sm btn-danger btn-flat" title="Delete"><span class="glyphicon glyphicon-remove"></span></button>
+                      </a>
+                    </td>
+                  </tr>
+                      {% endfor %}
+                    {% endif%}   
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    
+  
+
+    <footer class="main-footer">
+      <div class="container">
+        <div class="pull-right hidden-xs">
+          <b>Assignment By</b> Pawan Niroula
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+
+  <script src="{{ url_for('static', filename='js/jquery-2.2.3.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/app.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ url_for('static', filename='js/dataTables.bootstrap.min.js')}}"></script>
+
+
+</body>
+</html>
+{% endblock %}
