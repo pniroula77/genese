@@ -2,7 +2,7 @@
 
 import boto3
 
-image = 'image.jpg'
+image = 'pp.jpg'
 
 client = boto3.client('rekognition')
 
